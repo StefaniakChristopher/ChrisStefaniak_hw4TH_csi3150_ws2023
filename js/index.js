@@ -47,7 +47,7 @@ function createCarCard(car) {
 
   const { year, make, model, mileage, price, color, gasMileage } = car;
 
-  const imagePath = `../assets/img/${model}.jpg`;
+  const imagePath = `./assets/img/${model}.jpg`;
 
   const cardTemplate = `
     <div class="column">
