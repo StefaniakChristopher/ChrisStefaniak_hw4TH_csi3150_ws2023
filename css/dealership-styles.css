@@ -1,0 +1,324 @@
+/* Import font styling from google fonts - src: fonts.google.com */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: "Poppins", "Courier New", Courier, monospace;
+}
+
+/* top bar */
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+body {
+  color: #fff;
+  background-color: #212121;
+  padding: 1.5rem;
+  display: -ms-grid;
+  display: grid;
+}
+
+.search-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100vw;
+  margin: 0px 0 30px 0;
+}
+
+.search-box form {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.search-box form > div:not(:last-child) {
+  display: flex;
+}
+
+.regular-input {
+  gap: 10px;
+}
+
+select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+  appearance: none;
+  cursor: pointer;
+}
+
+select:hover {
+  border-color: #999;
+}
+
+select:focus, #max-price:focus {
+  outline: none;
+  border-color: #333;
+}
+
+/* to remove the increment and decrement arrows on the number input */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+label {
+  font-weight:500;
+}
+
+#max-price {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 0px 3px;
+}
+
+.filter-results {
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: #3264fe;
+  border-radius: 10px;
+  color: #ffffff;
+  transition: 0.1s ease all;
+  font-weight: 600;
+}
+
+.filter-results:hover {
+  background-color: rgb(50, 97, 241);
+}
+
+/* slider */
+
+.my-container {
+  position: relative;
+  width: 200px;
+  border-radius: 10px;
+  flex-direction: column;
+}
+
+.my-slider-container {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  
+}
+
+
+input[type="range"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  outline: none;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  background-color: transparent;
+  pointer-events: none;
+}
+
+.my-slider-track {
+  width: 100%;
+  height: 5px;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+input[type="range"]::-webkit-slider-runnable-track{
+  -webkit-appearance: none;
+  height: 5px;
+}
+
+input[type="range"]::-moz-range-track{
+  -moz-appearance: none;
+  height: 5px;
+}
+
+input[type="range"]::-ms-track{
+  appearance: none;
+  height: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  height: 1.7em;
+  width: 1.7em;
+  background-color: #3264fe;
+  cursor: pointer;
+  border-radius: 50%;
+  pointer-events: auto;
+  margin-top: -9px;
+}
+
+input[type="range"]::-moz-range-thumb{
+  -webkit-appearance: none;
+  height: 1.7em;
+  width: 1.7em;
+  background-color: #3264fe;
+  cursor: pointer;
+  border-radius: 50%;
+  pointer-events: auto;
+}
+
+input[type="range"]::-ms-thumb{
+  appearance: none;
+  height: 1.7em;
+  width: 1.7em;
+  background-color: #3264fe;
+  cursor: pointer;
+  border-radius: 50%;
+  pointer-events: auto;
+}
+
+input[type="range"]:active::-webkit-slider-thumb {
+  background-color: #ffffff;
+  border: 3px solid #3264fe;
+}
+
+.my-values{
+  background-color: #3264fe;
+  width: 100%;
+  position: absolute;
+  top: -15px;
+  padding: 10px 0;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 15px;
+  color: #ffffff;
+}
+.my-values:before{
+  content: "";
+  position: absolute;
+  height: 0;
+  width: 0;
+  border-top: 15px solid #3264fe;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  margin: auto;
+  bottom: -14px;
+  left: 0;
+  right: 0;
+}
+
+/* Dynamic Content */
+
+.container {
+  width: 100%;
+  max-height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container .card {
+  position: relative;
+  font-size: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 0.4rem;
+  line-height: 20px;
+  width: 285px;
+  height: 200px;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+.container .card .card-content {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 100px 10px 5px;
+  background-image: linear-gradient(
+    180deg,
+    rgba(51, 55, 69, 0),
+    rgba(16, 21, 40, 0.95)
+  );
+  transition: all 0.5s ease;
+}
+
+.container .card .card-content .card-header {
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.container .card .card-content .card-btn {
+  color: #fff;
+  cursor: pointer;
+  padding: 6px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 0.4rem;
+  transition: all 0.5s ease;
+}
+
+.container .card .card-content .info {
+  max-height: 0;
+  opacity: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.container .card:hover {
+  cursor: pointer;
+}
+
+.container .card:hover .card-content {
+  background-image: linear-gradient(180deg, rgba(51, 55, 69, 0), #101528 48%);
+}
+
+.container .card:hover .card-btn {
+  background-color: #0091ea;
+  border-color: #0091ea;
+}
+
+.container .card:hover .info {
+  max-height: 200px;
+  opacity: 1;
+  padding: 8px 0;
+}
+
+#result {
+  display: flex;
+  max-width: 100vw;
+  gap: 15px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* responsive design aspects: you can check the rest like title font size reduction etc. */
+@media screen and (max-width: 550px) {
+  .search-box {
+    justify-content: center;
+  }
+
+  .search-box form {
+    margin-top: 10px;
+  }
+}
