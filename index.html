@@ -16,10 +16,13 @@
   <body>
     <div class="container">
       <header class="search-box">
+        <!-- logo -->
         <a href="#">
           <h1>Best Cars</h1>
         </a>
+        <!-- Form elements -->
         <form id="search-form">
+          <!-- make -->
           <div class="regular-input">
             <h2>Car Make: </h2>
             <select name="car-make" id="car-make">
@@ -43,6 +46,7 @@
               <option value="Volkswagen">Volkswagen</option>
             </select>
           </div>
+          <!-- color -->
           <div class="regular-input">
             <h2>Colors: </h2>
             <select name="car-color" id="car-color">
@@ -57,6 +61,7 @@
               <option value="Red">Red</option>
             </select>
           </div>
+          <!-- mileage -->
           <div class="regular-input">
             <h2>Mileage: </h2>
             <select name="mileage" id="mileage">
@@ -72,10 +77,12 @@
               <option value="60000">Under 60000</option>
             </select>
           </div>
+          <!-- price -->
           <div class="regular-input">
             <label for="max-price">Max Price: </label>
             <input id="max-price" name="max-price" type="number">
           </div>
+          <!-- model year -->
           <div class="my-container">
             <div class="my-values">
               <span>Model Year: </span>
@@ -89,15 +96,12 @@
               <input type="range" min="2014" max="2024" value="2021" id="my-slider2" oninput="myMaxSlide()">
             </div>
           </div>
+          <!-- filter results -->
           <button class="filter-results" id="submit">
             Filter Results
           </button>
-          
         </form>
       </header>
-      <!-- Reached breakpoint - style this -->
-
-      <!-- innerHTML of the following block will be dynamically geenrated through JS  -->
       <div id="result"></div>
     </div>
   </body>

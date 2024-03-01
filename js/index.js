@@ -76,20 +76,19 @@ function createCarCard(car) {
   return cardTemplate;
 }
 
-// clear result output for search
+
 function clearResults() {
   result.innerHTML = "";
 }
 
-// display results on the page
+
 function showResults(cars) {
   clearResults()
   const newContent = cars.map(createCarCard).join("");
-  result.innerHTML += newContent || "<p> No Results Found. Search again. </p>";
+  result.innerHTML += newContent || "<p> No Results Found. Please filter again. </p>";
 }
 
-// Handle search operation
-// input param - event parameter
+// when the filter button is clicked
 async function handleFilterResults(e) {
 
   const carMake = document.getElementById('car-make').value
@@ -99,7 +98,7 @@ async function handleFilterResults(e) {
   const minMY = document.getElementById('my-slider1').value
   const maxMY = document.getElementById('my-slider2').value
   console.log("debug inside handleSearch function...");
-  // prevent form from resetting when submit is clicked
+
   e.preventDefault();
   let filterCars = usedCars
   carMake ? filterCars = filterCarMake(filterCars, carMake) : filterCars
@@ -110,6 +109,7 @@ async function handleFilterResults(e) {
   showResults(filterCars)
 }
 
+// various filters
 const filterCarMake = (cars, carMake) => {
   const filteredCars = cars.filter( (car) => {
     return car.make == carMake
@@ -143,8 +143,6 @@ const filterCarPrice = (cars, maxPrice) => {
 }
 
 const filterCarModelYear = (cars, minMY, maxMY) => {
-  console.log("max my " + maxMY)
-  console.log("min my " + minMY)
   const filteredCars = cars.filter( (car) => {
     console.log("cars year " + car.year)
     return parseInt(car.year) <= parseInt(maxMY) && parseInt(car.year) >= parseInt(minMY)
@@ -153,21 +151,9 @@ const filterCarModelYear = (cars, minMY, maxMY) => {
   return filteredCars
 }
 
-const carMake = document.getElementById('car-make').value
-const carColor = document.getElementById('car-color').value
-const mileage = document.getElementById('mileage').value
-const maxPrice = document.getElementById('max-price').value
-const minMY = document.getElementById('my-slider1').value
-const maxMY = document.getElementById('my-slider2').value
-
 const form = document.getElementById("search-form");
-
-
-// create event listeners and associate them to the function logic to be executed when detected on the page
-// note - while specifying/calling the function here, we do nt include the first brackets.
 form.addEventListener("submit", handleFilterResults);
 
-// initialize the page
 const init = () => {
   clearResults();
   showResults(usedCars)
